@@ -6,6 +6,19 @@
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" href="css/index.css">
 		<link rel="manifest" href="/manifest.json">
+		<script>
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', function() {
+				navigator.serviceWorker.register('/sw.js').then(function(registration) {
+				// Si es exitoso
+				console.log('SW registrado correctamente');
+				}, function(err) {
+				// Si falla
+				console.log('SW fallo', err);
+				});
+			});
+			}
+		</script>
 	</head>
 	<body>
 		<section class="todoapp">
